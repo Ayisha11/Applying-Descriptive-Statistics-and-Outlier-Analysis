@@ -1,11 +1,9 @@
-# customer_analysis.py
 import pandas as pd
 from pathlib import Path
 import sys
 
 downloads = Path.home() / "Downloads"
 
-# Find CSV files under Downloads whose name likely matches the dataset
 candidates = []
 for p in downloads.rglob("*.csv"):
     name = p.name.lower()
@@ -22,12 +20,11 @@ print("Found the following candidate CSV files:")
 for i, p in enumerate(candidates):
     print(f"[{i}] {p}  (size: {p.stat().st_size} bytes)")
 
-# Choose the first candidate by default (change index if you want a different file)
 choice_index = 0
 file_path = candidates[choice_index]
 print(f"\nUsing candidate [{choice_index}]: {file_path}\n")
 
-# Now try reading the CSV (with a safety try/except to show errors)
+
 try:
     data = pd.read_csv(file_path)
 except Exception as e:
