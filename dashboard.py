@@ -1,7 +1,8 @@
 import pandas as pd
 import plotly.express as px
 from dash import Dash, dcc, html, Input, Output
-file_path = '/Users/ayishasalmira/Downloads/CustomerBehaviourProject /Customer Purchasing Behaviors.csv'
+import os
+file_path = os.path.join(os.path.dirname(__file__), 'data', 'Customer Purchasing Behaviors.csv')
 data = pd.read_csv(file_path)
 
 app = Dash(__name__)

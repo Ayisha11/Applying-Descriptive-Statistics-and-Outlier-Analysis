@@ -1,12 +1,22 @@
+# Python caches
 __pycache__/
 *.pyc
-.env
-.venv
+
+# Virtual environments
 venv/
-env/
-.idea/
-.vscode/
-*.sqlite3
-.DS_Store
-*.egg-info/
 .venv/
+env/
+ENV/
+
+# macOS
+.DS_Store
+
+# CSV files (if very large)
+*.csv
+
+# Do NOT commit secrets
+.env
+
+# IDE folders
+.vscode/
+.idea/
