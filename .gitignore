@@ -11,9 +11,6 @@ ENV/
 # macOS
 .DS_Store
 
-# CSV files (if very large)
-*.csv
-
 # Do NOT commit secrets
 .env
 
