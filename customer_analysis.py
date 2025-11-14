@@ -1,18 +1,19 @@
 import pandas as pd
 from pathlib import Path
 import sys
-
-downloads = Path.home() / "Downloads"
+import os
+file_path = os.path.join(os.path.dirname(__file__), "data", "Customer Purchasing Behaviors.csv")
+data = pd.read_csv(file_path)
 
 candidates = []
-for p in downloads.rglob("*.csv"):
+for p in data.rglob("*.csv"):
     name = p.name.lower()
     if any(k in name for k in ("customer", "purchase", "purchasing", "behav", "behavior", "behaviour")):
         candidates.append(p)
 
 if not candidates:
     print("No likely dataset found under ~/Downloads. Here are the top-level files in ~/Downloads:")
-    for p in sorted(downloads.iterdir()):
+    for p in sorted(data.iterdir()):
         print(" -", p.name)
     sys.exit(1)
 
